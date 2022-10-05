@@ -24,7 +24,7 @@
             <!-- profile -->
             <div class="card">
                 <div class="card-body py-2 my-25">
-                    {{Form::open(['files'=>'true','class'=>'validate-form','url'=>route('admin.doctors.store')])}}
+                    {{Form::open(['files'=>'true','class'=>'validate-form','url'=>route('admin.employees.store')])}}
                         <input autocomplete="false" name="hidden" type="text" style="display:none;">
  
                         <div class="divider">

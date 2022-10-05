@@ -53,21 +53,21 @@
                                 <td class="text-center text-nowrap">
                                   
                                     @if($user->status == 'Active')
-                                        <a href="{{route('admin.doctors.block',['id'=>$user->id,'action'=>'1'])}}" class="btn btn-sm btn-icon btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.block')}}">
+                                        <a href="{{route('admin.employees.block',['id'=>$user->id,'action'=>'1'])}}" class="btn btn-sm btn-icon btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.block')}}">
                                             <i data-feather='shield-off'></i>
                                         </a>
                                     @else
-                                        <a href="{{route('admin.doctors.block',['id'=>$user->id,'action'=>'0'])}}" class="btn btn-sm btn-icon btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.unblock')}}">
+                                        <a href="{{route('admin.employees.block',['id'=>$user->id,'action'=>'0'])}}" class="btn btn-sm btn-icon btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.unblock')}}">
                                             <i data-feather='shield'></i>
                                         </a>
                                     @endif
-                                    <a href="{{route('admin.doctors.hrProfile',['id'=>$user->id])}}" class="btn btn-sm btn-icon btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.hrProfile')}}">
+                                    <a href="{{route('admin.employees.hrProfile',['id'=>$user->id])}}" class="btn btn-sm btn-icon btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.hrProfile')}}">
                                         <i data-feather='list'></i>
                                     </a>
-                                    <a href="{{route('admin.doctors.edit',['id'=>$user->id])}}" class="btn btn-sm btn-icon btn-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.edit')}}">
+                                    <a href="{{route('admin.employees.edit',['id'=>$user->id])}}" class="btn btn-sm btn-icon btn-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.edit')}}">
                                         <i data-feather='edit'></i>
                                     </a>
-                                    <?php $delete = route('admin.doctors.delete',['id'=>$user->id]); ?>
+                                    <?php $delete = route('admin.employees.delete',['id'=>$user->id]); ?>
                                     <button type="button" class="btn btn-sm btn-icon btn-danger" onclick="confirmDelete('{{$delete}}','{{$user->id}}')" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="{{trans('common.delete')}}">
                                         <i data-feather='trash-2'></i>
                                     </button>
@@ -133,16 +133,16 @@
 
 @section('page_buttons')
     @if(!isset($_GET['status']) || (isset($_GET['status']) && $_GET['status'] != 'Archive'))
-        <a href="{{route('admin.doctors',['status'=>'Archive'])}}" class="btn btn-danger">
+        <a href="{{route('admin.employees',['status'=>'Archive'])}}" class="btn btn-danger">
             {{trans('common.Archive')}}
         </a>
     @endif
     @if(isset($_GET['status']) && $_GET['status'] != 'Active')
-        <a href="{{route('admin.doctors',['status'=>'Active'])}}" class="btn btn-success">
+        <a href="{{route('admin.employees',['status'=>'Active'])}}" class="btn btn-success">
             {{trans('common.ActiveUsers')}}
         </a>
     @endif
-    <a href="{{route('admin.doctors.create')}}" class="btn btn-primary">
+    <a href="{{route('admin.employees.create')}}" class="btn btn-primary">
         {{trans('common.CreateNew')}}
     </a>
 

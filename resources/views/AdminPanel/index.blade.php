@@ -204,7 +204,7 @@
                                                     <tr>  
                                                         <th class="text-center">{{trans('common.date')}}  </th>
                                                         <th class="text-center">{{trans('common.clientname')}}</th>
-                                                        <th class="text-center">{{trans('common.doctorname')}}</th>
+                                                        <th class="text-center">{{trans('common.employeename')}}</th>
                                                         <th class="text-center">{{trans('common.services')}}  </th>
                                                         <th class="text-center">{{trans('common.details')}}  </th>
                                                         <th class="text-center">{{trans('common.actions')}}  </th>
@@ -226,9 +226,9 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center text-nowrap">
-                                                            @if(isset($appointment->doctor->id)) 
-                                                                {{$appointment->doctor->name}} <br>
-                                                                {{$appointment->doctor->phone}}  
+                                                            @if(isset($appointment->employee->id)) 
+                                                                {{$appointment->employee->name}} <br>
+                                                                {{$appointment->employee->phone}}  
                                                             @else
                                                                 -
                                                             @endif                                                        
@@ -313,7 +313,7 @@
                                                     <tr>  
                                                     <th class="text-center">{{trans('common.date')}}  </th>
                                                         <th class="text-center">{{trans('common.clientname')}}</th>
-                                                        <th class="text-center">{{trans('common.doctorname')}}</th>
+                                                        <th class="text-center">{{trans('common.employeename')}}</th>
                                                         <th class="text-center">{{trans('common.services')}}  </th>
                                                         <th class="text-center">{{trans('common.details')}}  </th>
                                                         <th class="text-center">{{trans('common.actions')}}  </th>
@@ -336,8 +336,8 @@
                                                             @endif
                                                         </td>
                                                         <td class="text-center text-nowrap">
-                                                               {{$appointment->doctor->name}} <br>
-                                                                {{$appointment->doctor->phone}}                                                          
+                                                               {{$appointment->employee->name}} <br>
+                                                                {{$appointment->employee->phone}}                                                          
                                                         </td>
                                                         <td class="text-center text-nowrap">
                                                             @foreach($appointment->services as $service)

@@ -27,7 +27,7 @@
                                 <td class="text-center">
 
                                 @if($role->id == 2)     
-                                    <a href="{{route('admin.doctors')}}" class="btn btn-sm btn-success">                                  
+                                    <a href="{{route('admin.employees')}}" class="btn btn-sm btn-success">                                  
                                     {{$role->users()->where('status','Active')->count()}}
                                     </a>
                                 @else

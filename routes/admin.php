@@ -33,19 +33,19 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
     });
  
     
-    // Doctors
-    Route::group(['prefix'=>'doctors'], function(){
-        Route::get('/','admin\AdminDoctorsController@index')->name('admin.doctors');
-        Route::get('/create','admin\AdminDoctorsController@create')->name('admin.doctors.create');
-        Route::post('/create','admin\AdminDoctorsController@store')->name('admin.doctors.store');
-        Route::get('/{id}/block/{action}','admin\AdminDoctorsController@blockAction')->name('admin.doctors.block');
-        Route::get('/{id}/edit','admin\AdminDoctorsController@edit')->name('admin.doctors.edit');
-        Route::post('/{id}/edit','admin\AdminDoctorsController@update')->name('admin.doctors.update');
-        Route::post('/{userId}/{serviceId}/edit','admin\AdminDoctorsController@updateCommission')->name('admin.commission.update'); 
-        Route::get('/{id}/hrProfile','admin\AdminDoctorsController@hrProfile')->name('admin.doctors.hrProfile');
-        Route::post('/{id}/hrProfile','admin\AdminDoctorsController@updateHRProfile')->name('admin.doctors.updateHRProfile');
-        Route::get('/{id}/delete','admin\AdminDoctorsController@delete')->name('admin.doctors.delete');
-        Route::get('/{id}/DeletePhoto/{photo}/{X}', 'admin\AdminDoctorsController@DeleteuserPhoto')->name('admin.users.deletePhoto');
+    // employees 
+    Route::group(['prefix'=>'employees'], function(){
+        Route::get('/','admin\AdminEmployeesController@index')->name('admin.employees');
+        Route::get('/create','admin\AdminEmployeesController@create')->name('admin.employees.create');
+        Route::post('/create','admin\AdminEmployeesController@store')->name('admin.employees.store');
+        Route::get('/{id}/block/{action}','admin\AdminEmployeesController@blockAction')->name('admin.employees.block');
+        Route::get('/{id}/edit','admin\AdminEmployeesController@edit')->name('admin.employees.edit');
+        Route::post('/{id}/edit','admin\AdminEmployeesController@update')->name('admin.employees.update');
+        Route::post('/{userId}/{serviceId}/edit','admin\AdminEmployeesController@updateCommission')->name('admin.commission.update'); 
+        Route::get('/{id}/hrProfile','admin\AdminEmployeesController@hrProfile')->name('admin.employees.hrProfile');
+        Route::post('/{id}/hrProfile','admin\AdminEmployeesController@updateHRProfile')->name('admin.employees.updateHRProfile');
+        Route::get('/{id}/delete','admin\AdminEmployeesController@delete')->name('admin.employees.delete');
+        Route::get('/{id}/DeletePhoto/{photo}/{X}', 'admin\AdminEmployeesController@DeleteuserPhoto')->name('admin.users.deletePhoto');
     });
 
 
@@ -234,7 +234,7 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
 
             Route::post('/movePulses', 'admin\Reservations\ReservationsController@movePulses')->name('admin.reservations.movePulses.store');
             Route::post('/movePayment', 'admin\Reservations\ReservationsController@movePayment')->name('admin.reservations.movePayment.store');
-
+        
         }); 
 
         Route::group(['prefix'=>'appointments'], function(){
@@ -245,7 +245,7 @@ Route::group(['prefix'=>'AdminPanel','middleware'=>['isAdmin','auth']], function
             Route::get('/{id}/Delete', 'admin\Reservations\AppointmentsController@delete')->name('admin.appointments.delete');
             Route::post('/getAvailableTimes', 'admin\Reservations\AppointmentsController@getAvailableTimes')->name('admin.getAvailableTimes');
         });
-
+-
 
         Route::group(['prefix'=>'payments'], function(){
             Route::get('/{id}', 'admin\Reservations\PaymentsController@index')->name('admin.payments');

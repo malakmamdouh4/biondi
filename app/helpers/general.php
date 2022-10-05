@@ -381,10 +381,10 @@ function unitsList()
     $units = App\Units::orderBy('name','asc')->pluck('name','id')->all();
     return $units;
 }
-function doctorsList()
+function employeesList()
 {
-    $doctors = App\User::where('role',2)->pluck('name','id')->all();
-    return $doctors;
+    $employees = App\User::where('role',2)->pluck('name','id')->all();
+    return $employees;
 }
 
 function clientList()
@@ -395,7 +395,7 @@ function clientList()
  
 function totalPulsesApp()
 {
-    $totalPulses = App\Appointment::where('date',date('Y-m-d'))->where(['status'=>'completedSession','doctor_id'=>auth()->user()->id])->sum('pulses');
+    $totalPulses = App\Appointment::where('date',date('Y-m-d'))->where(['status'=>'completedSession','employee_id'=>auth()->user()->id])->sum('pulses');
     return $totalPulses ;
 }
 
@@ -571,7 +571,7 @@ function systemMainSections()
         'home'=>'home',
         'settings' => 'settings',
         'users' => 'users',
-        'doctors' => 'doctors' ,
+        'employees' => 'employees' ,
         'roles' => 'roles',
         'userAccounts' => 'userAccounts',
         'attendance' => 'attendance',

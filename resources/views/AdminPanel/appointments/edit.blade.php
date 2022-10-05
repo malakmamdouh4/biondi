@@ -12,8 +12,8 @@
                     {{Form::open(['url'=>route('admin.appointments.update',[$appointment->id,$appointment->reservation_id]), 'id'=>'editappointmentForm'.$appointment->id, 'class'=>'row gy-1 pt-75 justify-content-center'])}}
                              
                     <div class="col-12 col-md-4">
-                        <label class="form-label" for="doctor_id">{{trans('common.doctors')}}</label>
-                        {{Form::select('doctor_id',doctorsList(),$appointment->doctor_id,['id'=>'doctor_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
+                        <label class="form-label" for="employee_id">{{trans('common.employees')}}</label>
+                        {{Form::select('employee_id',employeesList(),$appointment->employee_id,['id'=>'employee_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
                     </div> 
 
                     <div class="col-12 col-md-4">

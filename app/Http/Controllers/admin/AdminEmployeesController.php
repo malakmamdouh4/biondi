@@ -11,13 +11,13 @@ use App\EmploymentProfile;
 use App\Service;
 use Illuminate\Support\Facades\Response;
 
-class AdminDoctorsController extends Controller
+class AdminEmployeesController extends Controller
 {
     
     public function index()
     {
 
-        if (!userCan('doctors_view')) {
+        if (!userCan('employees_view')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
@@ -54,14 +54,14 @@ class AdminDoctorsController extends Controller
 
         $users = $users->paginate(25);
         
-        return view('AdminPanel.admins.doctors.index',[
-            'active' => 'doctors',
-            'title' => trans('common.doctors'),
+        return view('AdminPanel.admins.employees.index',[
+            'active' => 'employees',
+            'title' => trans('common.employees'),
             'users' => $users,
             'breadcrumbs' => [
                 [
                     'url' => '',
-                    'text' => trans('common.doctors')
+                    'text' => trans('common.employees')
                 ]
             ]
         ]);
@@ -70,7 +70,7 @@ class AdminDoctorsController extends Controller
     public function blockAction($id,$action)
     {
 
-        if (!userCan('doctors_block')) {
+        if (!userCan('employees_block')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
@@ -89,18 +89,18 @@ class AdminDoctorsController extends Controller
     
     public function create()
     {
-        if (!userCan('doctors_create')) {
+        if (!userCan('employees_create')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
          
-        return view('AdminPanel.admins.doctors.create',[
-            'active' => 'doctors',
-            'title' => trans('common.doctors'),
+        return view('AdminPanel.admins.employees.create',[
+            'active' => 'employees',
+            'title' => trans('common.employees'),
             'breadcrumbs' => [
                                 [
-                                    'url' => route('admin.doctors'),
-                                    'text' => trans('common.doctors')
+                                    'url' => route('admin.employees'),
+                                    'text' => trans('common.employees')
                                 ],
                                 [
                                     'url' => '',
@@ -160,7 +160,7 @@ class AdminDoctorsController extends Controller
             }
         }
         if ($user) { 
-            return redirect()->route('admin.doctors')
+            return redirect()->route('admin.employees')
                             ->with('success',trans('common.successMessageText'));
         } else {
             return redirect()->back()
@@ -172,22 +172,22 @@ class AdminDoctorsController extends Controller
     public function edit($id)
     {
 
-        if (!userCan('doctors_edit')) {
+        if (!userCan('employees_edit')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
 
         $user = User::find($id);
         $services = Service::get();
-        return view('AdminPanel.admins.doctors.edit',[
-            'active' => 'doctors',
-            'title' => trans('common.doctors'),
+        return view('AdminPanel.admins.employees.edit',[
+            'active' => 'employees',
+            'title' => trans('common.employees'),
             'user' => $user,
             'services' => $services ,
             'breadcrumbs' => [
                                 [
-                                    'url' => route('admin.doctors'),
-                                    'text' => trans('common.doctors')
+                                    'url' => route('admin.employees'),
+                                    'text' => trans('common.employees')
                                 ],
                                 [
                                     'url' => '',
@@ -229,7 +229,7 @@ class AdminDoctorsController extends Controller
         $update = User::find($id)->update($data);
 
         if ($update) {
-            return redirect()->route('admin.doctors')
+            return redirect()->route('admin.employees')
                             ->with('success',trans('common.successMessageText'));
         } else {
             return redirect()->back()
@@ -240,7 +240,7 @@ class AdminDoctorsController extends Controller
 
     public function updateCommission(Request $request,$userId,$serviceId)
     {
-        if (!userCan('doctors_commission_edit')) {
+        if (!userCan('employees_commission_edit')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
@@ -278,7 +278,7 @@ class AdminDoctorsController extends Controller
 
     public function DeleteuserPhoto($id,$photo,$X)
     {
-        if (!userCan('doctors_delete_photo')) {
+        if (!userCan('employees_delete_photo')) {
             return Response::json("false");
         }
         $user = User::find($id);
@@ -300,7 +300,7 @@ class AdminDoctorsController extends Controller
 
     public function delete($id)
     {
-        if (!userCan('doctors_delete')) {
+        if (!userCan('employees_delete')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
@@ -315,21 +315,21 @@ class AdminDoctorsController extends Controller
     
     public function hrProfile($id)
     {
-        if (!userCan('doctors_profile_view')) {
+        if (!userCan('employees_profile_view')) {
             return redirect()->route('admin.index')
                                 ->with('PopError',trans('common.youAreNotAuthorized'));
         }
          
         $user = User::find($id);
         // return $user->employmentProfile;
-        return view('AdminPanel.admins.doctors.hrProfile',[
-            'active' => 'doctors',
+        return view('AdminPanel.admins.employees.hrProfile',[
+            'active' => 'employees',
             'user' => $user,
-            'title' => trans('common.doctors'),
+            'title' => trans('common.employees'),
             'breadcrumbs' => [
                                 [
-                                    'url' => route('admin.doctors'),
-                                    'text' => trans('common.doctors')
+                                    'url' => route('admin.employees'),
+                                    'text' => trans('common.employees')
                                 ],
                                 [
                                     'url' => '',

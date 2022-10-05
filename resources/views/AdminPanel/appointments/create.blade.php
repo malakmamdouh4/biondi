@@ -46,7 +46,7 @@
                     
                     {!! Form::hidden('reservation_id', $reservation->id ?? '0') !!}  
                     {!! Form::hidden('client_id', $reservation->client->id ?? '0') !!}  
-                    {!! Form::hidden('doctor_id', $reservation->doctor->id ?? '0') !!}
+                    {!! Form::hidden('employee_id', $reservation->employee->id ?? '0') !!}
                    
 
                     <div class="col-12 text-center mt-2 pt-50">

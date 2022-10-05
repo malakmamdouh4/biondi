@@ -39,8 +39,8 @@
                                     @endif
                                 </td> 
                                 <td class="text-center text-nowrap">
-                                    @if(isset($reservation->doctor->id))  
-                                      {{trans('common.doctor')}}  : <br>  {{$reservation->doctor->name}} <br> <br>
+                                    @if(isset($reservation->employee->id))  
+                                      {{trans('common.employee')}}  : <br>  {{$reservation->employee->name}} <br> <br>
                                     @else
                                         - <br>
                                     @endif
@@ -163,8 +163,8 @@
                     </div>
 
                     <div class="col-12 col-md-4">
-                        <label class="form-label" for="doctor_id">{{trans('common.doctors')}}</label>
-                        {{Form::select('doctor_id',doctorsList(),$reservation->doctor_id,['id'=>'doctor_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
+                        <label class="form-label" for="employee_id">{{trans('common.employees')}}</label>
+                        {{Form::select('employee_id',employeesList(),$reservation->employee_id,['id'=>'employee_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
                     </div>    
                  
                    <div class="col-12 col-md-4">
@@ -285,8 +285,8 @@
                         </div>
 
                         <div class="col-12 col-md-3">
-                            <label class="form-label" for="doctor_id">{{trans('common.doctors')}}</label>
-                            {{Form::select('doctor_id',['all' => 'الجميع'] + doctorsList(),isset($_GET['doctor_id']) ? $_GET['doctor_id'] : '',['id'=>'doctor_id', 'class'=>'selectpicker','data-live-search'=>'true'])}}
+                            <label class="form-label" for="employee_id">{{trans('common.employees')}}</label>
+                            {{Form::select('employee_id',['all' => 'الجميع'] + employeesList(),isset($_GET['employee_id']) ? $_GET['employee_id'] : '',['id'=>'employee_id', 'class'=>'selectpicker','data-live-search'=>'true'])}}
                         </div>
 
                         <div class="col-12 col-md-3">

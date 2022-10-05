@@ -56,11 +56,11 @@
                             </span>
                         </a>
                     </li>
-                    <li @if(isset($active) && $active == 'doctors') class="active" @endif>
-                        <a class="d-flex align-items-center" href="{{route('admin.doctors')}}">
+                    <li @if(isset($active) && $active == 'employees') class="active" @endif>
+                        <a class="d-flex align-items-center" href="{{route('admin.employees')}}">
                             <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="{{trans('common.doctors')}}">
-                                {{trans('common.doctors')}}
+                            <span class="menu-item text-truncate" data-i18n="{{trans('common.employees')}}">
+                                {{trans('common.employees')}}
                             </span>
                         </a>
                     </li>

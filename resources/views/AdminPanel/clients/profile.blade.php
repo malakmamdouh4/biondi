@@ -108,8 +108,8 @@
                                                     @endif
                                                 </td> 
                                                 <td class="text-center text-nowrap">
-                                                    @if(isset($reservation->doctor->id))  
-                                                    {{trans('common.doctorname')}}  :   {{$reservation->doctor->name}} <br>
+                                                    @if(isset($reservation->employee->id))  
+                                                    {{trans('common.employeename')}}  :   {{$reservation->employee->name}} <br>
                                                     @else
                                                         - <br>
                                                     @endif

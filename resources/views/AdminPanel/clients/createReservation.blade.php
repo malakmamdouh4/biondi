@@ -23,8 +23,8 @@
                     @endif
 
                     <div class="col-12 col-md-4">
-                        <label class="form-label" for="user_id">{{trans('common.doctors')}}</label>
-                        {{Form::select('doctor_id',doctorsList(),'',['id'=>'doctor_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
+                        <label class="form-label" for="user_id">{{trans('common.employees')}}</label>
+                        {{Form::select('employee_id',employeesList(),'',['id'=>'employee_id','class'=>'form-select selectpicker','data-live-search'=>'true'])}}
                     </div>    
                  
                    <div class="col-12 col-md-4">

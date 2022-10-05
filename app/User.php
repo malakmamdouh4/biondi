@@ -78,9 +78,9 @@ class User extends Authenticatable
         return $this->belongsTo(Jobs::class,'title');
     }
 
-    public function doctorReservations()
+    public function employeeReservations()
     {
-        return $this->hasMany(Reservation::class,'doctor_id');
+        return $this->hasMany(Reservation::class,'employee_id');
     }
     public function userReservations()
     {
@@ -88,7 +88,7 @@ class User extends Authenticatable
     }
     public function appointments()
     {
-        return $this->hasMany(Appointment::class,'doctor_id');
+        return $this->hasMany(Appointment::class,'employee_id');
     }
     public function countryData()
     {

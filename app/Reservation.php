@@ -12,9 +12,9 @@ class Reservation extends Model
     {
         return $this->belongsToMany(Service::class)->withPivot(['id','client_id']);
     }
-    public function doctor()
+    public function employee()
     {
-        return $this->belongsTo(User::class,'doctor_id');
+        return $this->belongsTo(User::class,'employee_id');
     }
     public function user()
     {
